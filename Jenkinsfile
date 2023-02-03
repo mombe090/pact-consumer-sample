@@ -22,7 +22,7 @@ pipeline {
         sh 'curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.82.3/pact-1.82.3-linux-x86_64.tar.gz'
         sh 'tar xzf pact-1.82.3-linux-x86_64.tar.gz'
         dir('pact/bin') {
-          sh "./pact-broker can-i-deploy --retry-while-unknown=12 --retry-interval=10 -a AccountBalanceConsumer -b http://pact_broker -e ${GIT_COMMIT}"
+          sh "./pact-broker can-i-deploy --retry-while-unknown=12 --retry-interval=10 -a AccountBalanceConsumer -b http://pact_broker:9292 -e ${GIT_COMMIT}"
         }
       }
     }
